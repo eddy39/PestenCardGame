@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="1620.6489mm"
-   height="1129.4918mm"
-   viewBox="0 0 1620.6489 1129.4918"
+   width="7597.4604mm"
+   height="5864.1528mm"
+   viewBox="0 0 7597.4604 5864.1527"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -27,20 +27,21 @@
      showgrid="false"
      showborder="false"
      borderlayer="false"
-     inkscape:zoom="0.13181248"
-     inkscape:cx="2112.8501"
-     inkscape:cy="1813.1819"
+     inkscape:zoom="0.37282199"
+     inkscape:cx="14155.549"
+     inkscape:cy="10672.654"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><defs
+     inkscape:current-layer="layer1"
+     shape-rendering="crispEdges" /><defs
      id="defs2" /><g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1341.6951,344.0736)"><rect
+     transform="translate(4441.895,2681.9978)"><rect
        style="fill:#008000;stroke-width:2.23816"
        id="rect111"
        width="372.48068"
@@ -67,7 +68,10 @@
        width="34.064514"
        height="51.096775"
        x="-683.44623"
-       y="-15.51204" /><rect
+       y="-15.51204"
+       inkscape:export-filename="rect273-5-7.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" /><rect
        style="fill:#f2f2f2;stroke-width:0.264583"
        id="rect273-59"
        width="34.064514"
@@ -253,6 +257,15 @@
        height="51.096775"
        x="-577.06085"
        y="-17.519302" /><rect
+       style="fill:#f2f2f2;stroke-width:0.264583"
+       id="rect273-38-5"
+       width="34.064514"
+       height="51.096775"
+       x="-579.12103"
+       y="41.743961"
+       inkscape:export-filename="rect273-38-5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" /><rect
        style="fill:#ff8080;stroke-width:0.264583"
        id="rect524-5"
        width="26.094521"

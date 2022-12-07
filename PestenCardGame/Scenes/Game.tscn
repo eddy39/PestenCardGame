@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Assets/bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/CardBack.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 799, 450 )
+scale = Vector2( 2, 1 )
+texture = ExtResource( 2 )
+
+[node name="Deck" type="Sprite" parent="."]
+position = Vector2( 715, 434 )
+texture = ExtResource( 3 )
+
+[node name="DiscardPile" parent="." instance=ExtResource( 6 )]
+position = Vector2( 860, 433 )
+
+[node name="BotParent" type="Node2D" parent="."]
+
+[node name="Bot1" parent="BotParent" instance=ExtResource( 5 )]
+position = Vector2( 328, 424 )
+rotation = 1.5708
+
+[node name="Bot2" parent="BotParent" instance=ExtResource( 5 )]
+position = Vector2( 773, 134 )
+rotation = 3.14159
+
+[node name="Bot3" parent="BotParent" instance=ExtResource( 5 )]
+position = Vector2( 1207, 440 )
+rotation = 4.71239
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 773, 734 )
