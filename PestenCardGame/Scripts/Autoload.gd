@@ -1,7 +1,7 @@
 extends Node
 
 
-var n_start_cards = 9
+var n_start_cards = 5
 
 var card_kinds = ["heart", "diamand", "spades", "cross"]
 var card_names = ["2","3","4","5","6","7","8","9","10"

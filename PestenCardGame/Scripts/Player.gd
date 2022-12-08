@@ -10,18 +10,19 @@ func _ready():
 	pass # Replace with function body.
 
 func add_card(card_name):
-	hand_cards.append(card_name)
 	var card_ = card_scene.instance()
 	card_.card_name = card_name
 	card_.front = true
 	card_.in_players_hand = true
 	card_.card_owner = self
 	$CardHolder.add_child(card_)
+	
+	hand_cards.append(card_)
 	# align cards next to each other
 	align_cards()
 
 func remove_card(card):
-	var ind_card = hand_cards.find(card.card_name)
+	var ind_card = hand_cards.find(card)
 	hand_cards.remove(ind_card)
 	$CardHolder.remove_child(card)
 	# align cards next to each other

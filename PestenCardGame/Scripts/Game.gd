@@ -6,7 +6,13 @@ var bot_scene = preload("res://Scenes/Bot.tscn")
 var bot_list = []
 var deck_cards = []
 
+var bot_turn_time = 2
+var current_turn_time = 0
+
 var active_player
+var active_player_index = 0 #0 means player
+
+var game_over = false
 # graphic vars
 var radius = 300
 var center = OS.get_window_size()/2
@@ -72,6 +78,8 @@ func can_play_card(card_name:String) -> bool:
 	return false
 
 func play_card(card:Node2D,card_owner:Node2D):
+	if game_over:
+		return
 	# find and remove the card from owner
 	card_owner.remove_card(card)
 	# add card to discard Pile
@@ -80,15 +88,64 @@ func play_card(card:Node2D,card_owner:Node2D):
 	# TODO: APPLY CARD EFFEKT
 	
 	# End turn
-	
+	set_next_player()
 
-func bot_ai()->String:
+func check_player_can_play():
+	for card in $Player.hand_cards:
+		if(can_play_card(card.card_name)):
+			return true
+	
+	return false
+
+func set_next_player():
+	active_player_index = (active_player_index+1)%(len(bot_list)+1)
+	if active_player_index==0:
+		active_player = $Player
+		########### Player turn starts
+		if not check_player_can_play():
+			deal_card_to($Player)
+			# Player turn over
+			active_player_index = (active_player_index+1)%(len(bot_list)+1)
+			active_player = bot_list[active_player_index-1]
+	else:
+		active_player = bot_list[active_player_index-1]
+
+func bot_ai(bot):
+	
+	for card in bot.hand_cards:
+		if(can_play_card(card.card_name)):
+			return card
 	
 	return ""
 
+func check_win():
+	if len($Player.hand_cards)==0:
+		print("player won")
+		game_over = true
+	for bot in bot_list:
+		if len(bot.hand_cards)==0:
+			print("bot won")
+			game_over = true
+
 func _process(delta):
+	# if game over stop
+	if game_over:
+		return
 	# if its players turn wait
 	if active_player == $Player:
 		return
+	# block turn for bot_turn_time
+	current_turn_time+=delta
+	if current_turn_time<bot_turn_time:
+		return
+	# reset current_turn_time
+	current_turn_time = 0
 	# if active player is bot
-	
+	var card2play = bot_ai(active_player)
+	if card2play is String:
+		# cant play a card
+		deal_card_to(active_player)
+		set_next_player()
+	else:
+		play_card(card2play,active_player)
+	check_win()
